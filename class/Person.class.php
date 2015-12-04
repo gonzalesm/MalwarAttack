@@ -7,7 +7,7 @@
  */
 
 
-class Person  {
+abstract class Person {
     protected $life;
     protected $name;
     protected $level;
@@ -60,5 +60,5 @@ class Person  {
         $this->name = $name;
     }
 
-
 }
+?>

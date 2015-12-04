@@ -11,7 +11,7 @@ class Game{
     protected $numberAttacks;
 
 
-    public function__construct($wave) {
+    public function __construct($wave) {
     $this->setWave($wave);
     }
 
