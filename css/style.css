@@ -7,14 +7,62 @@
 	width: 100%;
 	height: 600px;
 	display: inline-block;
-	background-color: blue;
+}
+
+.menu-header {
+	margin: auto;
+	width: 900px;
+	height: 75px;
+	background-color: rgba(0,0,0,0.6);
+	margin-top: 50px;
+	
+}
+
+.bitcoin {
+	width: 60px;
+	height: 100%;
+	background-color: rgba(0,0,0,0.5);
+	float: left;
+	text-align: center;
+}
+
+.vague {
+	width: 80px;
+	height: 100%;
+	float: left;
+	line-height: 75px;
+	margin-left: 10px;
+}
+
+.person {
+	width: 60px;
+	height: 100%;
+	background-color: rgba(0,0,0,0.5);
+	float: left;
+	margin-left: 0px;
+	text-align: center;
+	border-right: solid black 1px;
+}
+
+.person:first-child {
+	margin-left: 150px;
+}
+
+.menu {
+	width: 120px;
+	height: 100%;
+	background-color: red;
+	float: right;
+	text-align: center;
+	font-size: 25px;
+	line-height: 75px;
 }
 
 .plateau-contour {
 	margin: auto;
 	width: 900px;
 	height:500px;
-	margin-top: 50px;
+	margin-top: 30px;
 }
 
 .ligne {
