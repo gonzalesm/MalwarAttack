@@ -7,47 +7,32 @@
      */
 
     class Attack extends Person {
-        protected $attributeA;
+        protected $strenght;
         protected $attributeB;
 
-        /**
-         * @return mixed
-         */
-        public function getAttributeA()
-        {
-            return $this->attributeA;
+        public function __construct($strenght, $attributeB){
+            $this->setStrenght($strenght);
+            $this->setAttributeB($attributeB);
         }
 
-        /**
-         * @param mixed $attributeA
-         */
-        public function setAttributeA($attributeA)
-        {
-            $this->attributeA = $attributeA;
+        public function getStrenght() {
+            return $this->strenght;
         }
 
-        /**
-         * @return mixed
-         */
-        public function getAttributeB()
-        {
+        public function setStrenght($strenght) {
+            $this->strenght = $strenght;
+        }
+
+        public function getAttributeB() {
             return $this->attributeB;
         }
 
-        /**
-         * @param mixed $attributeB
-         */
-        public function setAttributeB($attributeB)
-        {
+        public function setAttributeB($attributeB) {
             $this->attributeB = $attributeB;
         }
 
-        public function methodeA(){
-
-        }
-
-        public function methodeB(){
-
+        public function toAttack(Defence $enemy) {
+            $enemy->loseLife(1);
         }
     }
 ?>

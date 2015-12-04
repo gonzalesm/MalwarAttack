@@ -10,46 +10,33 @@
         protected $cost;
         protected $level;
 
-        /**
-         * @return mixed
-         */
-        public function getCost()
-        {
+        public function getCost() {
             return $this->cost;
         }
 
-        /**
-         * @param mixed $cost
-         */
-        public function setCost($cost)
-        {
+        public function setCost($cost) {
             $this->cost = $cost;
         }
 
-        /**
-         * @return mixed
-         */
-        public function getLevel()
-        {
+        public function getLevel() {
             return $this->level;
         }
 
-        /**
-         * @param mixed $level
-         */
-        public function setLevel($level)
-        {
+        public function setLevel($level) {
             $this->level = $level;
         }
 
+        public function toDefense(Attack $enemy) {
+            $enemy->loseLife();
+        }
 
-        public function levelUp($level){
+        public function levelUp($level) {
             if ($wave ++){
                 return true;
             }
         }
 
-        public function looseLife(){
+        public function looseLife() {
 
         }
     }

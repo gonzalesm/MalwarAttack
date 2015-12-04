@@ -6,59 +6,55 @@
  * Time: 12:50
  */
 
+     class Person {
+        protected $life;
+        protected $name;
+        protected $level;
+        protected $x;
+        protected $y;
 
-abstract class Person {
-    protected $life;
-    protected $name;
-    protected $level;
+        public function __construct($life, $name, $level, $x, $y){
+            $this->setLife($life);
+            $this->setName($name);
+            $this->setLevel($level);
+            $this->setX($x);
+            $this->setY($y);
+        }
 
-    /**
-     * @return mixed
-     */
-    public function getLevel()
-    {
-        return $this->level;
+        public function getLife() {
+            return $this->life;
+        }
+        public function getName() {
+            return $this->name;
+        }
+        public function getLevel() {
+            return $this->level;
+        }
+        public function getX() {
+            return $this->x;
+        }
+        public function getY() {
+            return $this->y;
+        }
+
+        public function setLife($life) {
+            $this->life = $life;
+        }
+        public function setName($name) {
+            $this->name = $name;
+        }
+        public function setLevel($level) {
+            $this->level = $level;
+        }
+        public function setX($x) {
+            $this->x = $x;
+        }
+        public function setY($y) {
+            $this->y = $y;
+        }
+
+        public function loseLife($lifeLost){
+            $this->life -= $lifeLost;
+        }
     }
-
-    /**
-     * @param mixed $level
-     */
-    public function setLevel($level)
-    {
-        $this->level = $level;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getLife()
-    {
-        return $this->life;
-    }
-
-    /**
-     * @param mixed $life
-     */
-    public function setLife($life)
-    {
-        $this->life = $life;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getName()
-    {
-        return $this->name;
-    }
-
-    /**
-     * @param mixed $name
-     */
-    public function setName($name)
-    {
-        $this->name = $name;
-    }
-
-}
 ?>

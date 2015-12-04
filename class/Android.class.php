@@ -7,43 +7,18 @@
  */
 
 class Android extends Attack {
-    protected $life;
-    protected $dammage;
 
-    /**
-     * @return mixed
-     */
-    public function getDammage()
-    {
-        return $this->dammage;
+    public function __construct(){
+        parent::__construct();
     }
 
-    /**
-     * @param mixed $dammage
-     */
-    public function setDammage($dammage)
-    {
-        $this->dammage = $dammage;
+    public function toAttack(Defence $enemy) {
+        parent::loseLife();
+        $enemy->loseLife();
     }
 
-    /**
-     * @return mixed
-     */
-    public function getLife()
-    {
-        return $this->life;
-    }
-
-    /**
-     * @param mixed $life
-     */
-    public function setLife($life)
-    {
-        $this->life = $life;
-    }
-
-    public function AttackBodyToBody(){
-
+    public function AttackBodyToBody($enemy){
+        toAttack($enemy);
     }
 
 } 
