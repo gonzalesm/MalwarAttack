@@ -40,7 +40,6 @@
     }
 
 
-
         public function loseLife($lifeLost){
             $this->life -= $lifeLost;
         }

@@ -12,6 +12,11 @@
 
 	    }
 
+	    public function levelUp($level){
+            parent::levelUp($level);
+            $this->bitcoin += 5;
+        }
+
 	}
 
 ?>

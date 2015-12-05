@@ -21,11 +21,10 @@
 
         abstract public function toDefense(Attack $enemy);
 
-        /*public function levelUp($level) {
-            if ($wave ++){
-                return true;
-            }
-        }*/
+        public function levelUp(){
+            $this->level ++;
+            $this->life *= 1.1;
+        }
 
     }
 ?>

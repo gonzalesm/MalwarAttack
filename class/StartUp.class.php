@@ -24,6 +24,11 @@
 	    public function toProduceB($nbBitcoin) {
 	    	$this->bitcoin += $nbBitcoin;
 	    }
-	    
+
+	    public function levelUp(){
+            parent::levelUp();
+            $this->bitcoin += 5;
+        }
+
 	}
 ?>

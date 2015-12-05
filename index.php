@@ -10,18 +10,17 @@ ini_set("display_errors", 1);
 
 //ATTAQUANTS
 $Android      =  new Android;
-$Intern      =  new Intern;
-$Startup      =  new StartUp;
+
 /*$Hacker       =  new Hacker;
 $Malware      =  new Malware;
-$Troyes       =  new Troyes;
+$Troyes       =  new Troyes;*/
 
 //DEFENSEURS
-$Startup      =  new StartUp;
+$Intern      =  new Intern;
+/*$Startup      =  new StartUp;
 $Stagiaire    =  new Intern;
 $Developpeur  =  new Developer;
-$Antivirus    =  new Antivirus;
-$Nerd         =  new Nerd;*/
+$Antivirus    =  new Antivirus;*/
 
 /*if(isset($_GET['nom'])){
     $nom = $_GET['nom'];    
@@ -45,6 +44,10 @@ $test = new Attack();*/
 /*$Startup->setCost(10);*/
 /*echo $Startup->getCost();*/
 
+$waves = new Game(0);
+$wave = $waves->getWave();
+echo "Vague : ".$wave;
+
 echo '<pre>';
 var_dump($Android);
 echo '</pre>';
@@ -64,20 +67,18 @@ echo '<pre>';
 var_dump($Intern);
 echo '</pre>';
 
+
+$waves = $waves->nextWave($wave);
+echo "<br />Vague : ".$waves;
+
 $Intern->toDefense($Android);
+$Android->toAttack($Intern);
 
 echo '<pre>';
-var_dump($Startup);
+var_dump($Android);
 echo '</pre>';
 
-$Startup->toProduceB(25);
-
-echo '<pre>';
-var_dump($Startup);
-echo '</pre>';
-
-/*
-echo '<pre>';
+/*echo '<pre>';
 var_dump($Stagiaire);
 echo '</pre>';
 
@@ -87,10 +88,6 @@ echo '</pre>';
 
 echo '<pre>';
 var_dump($Antivirus);
-echo '</pre>';
-
-echo '<pre>';
-var_dump($Nerd);
 echo '</pre>';*/
 
 ?>
@@ -187,13 +184,6 @@ echo '</pre>';*/
     <td><?php echo $Antivirus->getX(); ?></td> 
     <td><?php echo $Antivirus->getY(); ?></td>
     <td><a href="?nom=Antivirus&move_x=1"><button type="button" class="btn btn-default">Avancer de 1 en X</button></a></td> 
-  </tr>
-  <tr>
-    <td><?php echo $Nerd->GetName(); ?></td>
-    <td><?php echo $Nerd->getLife(); ?></td> 
-    <td><?php echo $Nerd->getX(); ?></td> 
-    <td><?php echo $Nerd->getY(); ?></td>
-    <td><a href="?nom=Nerd&move_x=1"><button type="button" class="btn btn-default">Avancer de 1 en X</button></a></td>  
   </tr>
 </table>
 
