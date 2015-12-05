@@ -9,19 +9,21 @@ ini_set("display_errors", 1);
 //DIV         =  new Type(PV, Nom, Level, X, Y);
 
 //ATTAQUANTS
-$Android      =  new Android(10, 'Android', 2, 3, 1);
-$Hacker       =  new Hacker(10, 'Hacker', 2, 3, 1);
-$Malware      =  new Malware(15, 'Malware', 2, 3, 1);
-$Troyes       =  new Troyes(20, 'Troyes', 2, 3, 1);
+$Android      =  new Android;
+$Intern      =  new Intern;
+$Startup      =  new StartUp;
+/*$Hacker       =  new Hacker;
+$Malware      =  new Malware;
+$Troyes       =  new Troyes;
 
 //DEFENSEURS
 $Startup      =  new StartUp;
 $Stagiaire    =  new Intern;
 $Developpeur  =  new Developer;
 $Antivirus    =  new Antivirus;
-$Nerd         =  new Nerd;
+$Nerd         =  new Nerd;*/
 
-if(isset($_GET['nom'])){
+/*if(isset($_GET['nom'])){
     $nom = $_GET['nom'];    
     if(isset($_GET['move_x'])){ 
         if(isset($_COOKIE["move_x_".$nom])){
@@ -31,26 +33,50 @@ if(isset($_GET['nom'])){
             setcookie("move_x_".$nom,$_GET['move_x']);
         }
     }
-}
+}*/
 //echo $_COOKIE["move_x_".$nom];
 
-$Android->toAttack($Startup);
+/*$Android->toAttack($Startup);
 $Android->move_x(3);
 $Android->move_y(3);
 
-$test = new Attack();
+$test = new Attack();*/
 
 /*$Startup->setCost(10);*/
-echo $Startup->getCost();
+/*echo $Startup->getCost();*/
 
 echo '<pre>';
 var_dump($Android);
 echo '</pre>';
 
 echo '<pre>';
+var_dump($Intern);
+echo '</pre>';
+
+$Android->toAttack($Intern);
+$Intern->toDefense($Android);
+
+echo '<pre>';
+var_dump($Android);
+echo '</pre>';
+
+echo '<pre>';
+var_dump($Intern);
+echo '</pre>';
+
+$Intern->toDefense($Android);
+
+echo '<pre>';
 var_dump($Startup);
 echo '</pre>';
 
+$Startup->toProduceB(25);
+
+echo '<pre>';
+var_dump($Startup);
+echo '</pre>';
+
+/*
 echo '<pre>';
 var_dump($Stagiaire);
 echo '</pre>';
@@ -65,10 +91,10 @@ echo '</pre>';
 
 echo '<pre>';
 var_dump($Nerd);
-echo '</pre>';
+echo '</pre>';*/
 
 ?>
-
+<!-- 
 <!DOCTYPE html>
 <html lang="fr"
 <head
@@ -172,4 +198,4 @@ echo '</pre>';
 </table>
 
 </body>
-</html>
+</html> -->

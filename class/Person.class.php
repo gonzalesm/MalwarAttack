@@ -45,13 +45,13 @@
             $this->life -= $lifeLost;
         }
          
-        public function move_x($nb=1){
+        /*public function move_x($nb=1){
             $this->x += $nb;
         }
          
         public function move_y($nb=1){
             $this->y += $nb;
-        }
+        }*/
          
         
     }

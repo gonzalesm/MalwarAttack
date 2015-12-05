@@ -1,10 +1,29 @@
 <?php
 
-class StartUp extends Defence {
+	class StartUp extends Defence {
 
-    public function __construct(){
-        parent::initialization(10, 'Startup', 0, 0, 0);
-        parent::setCost(55);
-    }
+		protected $bitcoin;
 
-} 
+	    public function __construct(){
+	    	// $life, $name, $x, $y, $level
+	        parent::initialization(10, 'Startup', 0, 0, 0);
+	        parent::setCost(55);
+	        $this->setBitcoin(25);
+	    }
+
+	    public function getBitcoin() {
+            return $this->bitcoin;
+        }
+
+        public function setBitcoin($bitcoin) {
+            $this->bitcoin = $bitcoin;
+        }
+
+	    public function toDefense(Attack $enemy=NULL) {}
+
+	    public function toProduceB($nbBitcoin) {
+	    	$this->bitcoin += $nbBitcoin;
+	    }
+	    
+	}
+?>

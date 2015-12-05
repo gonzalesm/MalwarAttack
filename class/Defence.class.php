@@ -1,6 +1,6 @@
 <?php
 
-	class Defence extends Person {
+	abstract class Defence extends Person {
         protected $cost;
 
         public function getCost() {
@@ -18,18 +18,14 @@
             parent::setY($y);
             parent::setLevel($level);
         }
-        public function toDefense(Attack $enemy) {
-            $enemy->loseLife();
-        }
 
-        public function levelUp($level) {
+        abstract public function toDefense(Attack $enemy);
+
+        /*public function levelUp($level) {
             if ($wave ++){
                 return true;
             }
-        }
+        }*/
 
-        public function looseLife() {
-
-        }
     }
 ?>
