@@ -1,51 +1,13 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: valentin.berthelot
- * Date: 18/11/2015
- * Time: 11:03
- */
 
-class Hacker {
-    protected $life;
-    protected $dammage;
+class Hacker extends Attack {
 
-
-    /**
-     * @return mixed
-     */
-    public function getDammage()
-    {
-        return $this->dammage;
+    public function __construct(){
+        parent::initialization(30, 'Hacker', 9, 0, 0);
     }
 
-    /**
-     * @param mixed $dammage
-     */
-    public function setDammage($dammage)
-    {
-        $this->dammage = $dammage;
+    public function toAttack(Person $enemy) {
+        $enemy->loseLife(5);
     }
-
-    /**
-     * @return mixed
-     */
-    public function getLife()
-    {
-        return $this->life;
-    }
-
-    /**
-     * @param mixed $life
-     */
-    public function setLife($life)
-    {
-        $this->life = $life;
-    }
-
-    public function distanceAttack(){
-
-    }
-
 
 } 

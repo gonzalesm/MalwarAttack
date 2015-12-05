@@ -1,11 +1,11 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: valentin.berthelot
- * Date: 18/11/2015
- * Time: 10:35
- */
 
 class Antivirus extends Defence {
-    protected $lifePoint;
+    
+    public function __construct(){
+        parent::initialization(30, 'Antivirus', 0, 0, 0);
+        parent::setCost(50);
+    }
 }
+
+?>

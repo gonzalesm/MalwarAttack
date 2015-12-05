@@ -1,14 +1,7 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: valentin.berthelot
- * Date: 18/11/2015
- * Time: 12:53
- */
 
 	class Defence extends Person {
         protected $cost;
-        protected $level;
 
         public function getCost() {
             return $this->cost;
@@ -18,14 +11,13 @@
             $this->cost = $cost;
         }
 
-        public function getLevel() {
-            return $this->level;
+        public function initialization($life, $name, $x, $y, $level){
+            parent::setLife($life);
+            parent::setName($name);
+            parent::setX($x);
+            parent::setY($y);
+            parent::setLevel($level);
         }
-
-        public function setLevel($level) {
-            $this->level = $level;
-        }
-
         public function toDefense(Attack $enemy) {
             $enemy->loseLife();
         }
