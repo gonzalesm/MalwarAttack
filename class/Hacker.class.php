@@ -4,11 +4,13 @@
 
         public function __construct(){
             // $life, $name, $x, $y, $level
-            parent::initialization(30, 'Hacker', 9, 0, 0);
+            $randomY = rand(0, 4);
+            parent::initialization(20, 'Hacker', 9, $randomY, 0);
         }
 
         public function toAttack(Defence $enemy) {
             $enemy->loseLife(5);
+            return $enemy->getLife();
         }
 
     }

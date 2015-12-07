@@ -10,6 +10,10 @@
             parent::setLevel($level);
         }
 
+        public function persoActive($number){
+            $this->number += $number;
+        }
+
         abstract public function toAttack(Defence $enemy);
 
 

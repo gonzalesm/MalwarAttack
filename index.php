@@ -9,16 +9,16 @@ ini_set("display_errors", 1);
 //DIV         =  new Type(PV, Nom, Level, X, Y);
 
 //ATTAQUANTS
-$Android      =  new Android;
 
 /*$Hacker       =  new Hacker;
+$Android      =  new Android;
 $Malware      =  new Malware;
 $Troyes       =  new Troyes;*/
 
 //DEFENSEURS
 $Intern      =  new Intern;
 /*$Startup      =  new StartUp;
-$Stagiaire    =  new Intern;
+$Intern      =  new Intern;
 $Developpeur  =  new Developer;
 $Antivirus    =  new Antivirus;*/
 
@@ -44,8 +44,14 @@ $test = new Attack();*/
 /*$Startup->setCost(10);*/
 /*echo $Startup->getCost();*/
 
-$waves = new Game(0);
-$wave = $waves->getWave();
+
+
+// FONCTIONNEL //
+// // FONCTIONNEL //
+
+
+/*$game = new Game(0);
+$wave = $game->getWave();
 echo "Vague : ".$wave;
 
 echo '<pre>';
@@ -68,7 +74,7 @@ var_dump($Intern);
 echo '</pre>';
 
 
-$waves = $waves->nextWave($wave);
+$waves = $game->nextWave($wave);
 echo "<br />Vague : ".$waves;
 
 $Intern->toDefense($Android);
@@ -76,7 +82,122 @@ $Android->toAttack($Intern);
 
 echo '<pre>';
 var_dump($Android);
+echo '</pre>';*/
+
+// FONCTIONNEL //
+// FONCTIONNEL //
+
+//nb d'attaquants
+$attacks = 0;
+
+$game = new Game(0);
+$wave = $game->getWave();
+echo "<b>Vague : ".$wave."</b><br />";
+
+$Hacker1       =  new Hacker;
+$attacks = $attacks + 1;
+
+$Hacker2       =  new Hacker;
+$attacks = $attacks + 1;
+
+echo "Nb d'attaquants : ".$attacks;
+
+echo '<pre>';
+var_dump($Hacker1);
 echo '</pre>';
+
+$Intern->toDefense($Hacker1);
+
+echo '<pre>';
+var_dump($Hacker1);
+echo '</pre>';
+
+$Intern->toDefense($Hacker1);
+$Intern->toDefense($Hacker1);
+$Intern->toDefense($Hacker1);
+
+echo '<pre>';
+var_dump($Hacker1);
+echo '</pre>';
+
+if ($Hacker1->getLife() == 0) {
+    $attacks = $attacks - 1;
+}
+
+echo '<pre>';
+var_dump($Hacker2);
+echo '</pre>';
+
+$Intern->toDefense($Hacker2);
+$Intern->toDefense($Hacker2);
+$Intern->toDefense($Hacker2);
+$Intern->toDefense($Hacker2);
+
+echo '<pre>';
+var_dump($Hacker2);
+echo '</pre>';
+
+if ($Hacker2->getLife() == 0) {
+    $attacks = $attacks - 1;
+}
+
+echo "Nb d'attaquants : ".$attacks;
+
+if ($attacks == 0) {
+    $waves = $game->nextWave($wave);
+    echo "<br /><b>Vague : ".$waves."</b><br />";
+
+    $param = $game->paramWave($waves);
+    print_r($param);
+
+    if ($param['android'] !== 0) {
+        for ($i=0; $i < $param['android']; $i++) { 
+            ${'Android'.$i}       =  new Android;
+            $attacks = $attacks + 1;
+
+            echo '<pre>';
+            var_dump(${'Android'.$i});
+            echo '</pre>';
+        }
+    }
+
+    if ($param['troyes'] !== 0) {
+        for ($i=0; $i < $param['troyes']; $i++) { 
+            ${'Troyes'.$i}       =  new Troyes;
+            $attacks = $attacks + 1;
+
+            echo '<pre>';
+            var_dump(${'Troyes'.$i});
+            echo '</pre>';
+        }
+    }
+
+    if ($param['hacker'] !== 0) {
+        for ($i=0; $i < $param['hacker']; $i++) { 
+            ${'Hacker'.$i}       =  new Hacker;
+            $attacks = $attacks + 1;
+
+            echo '<pre>';
+            var_dump(${'Hacker'.$i});
+            echo '</pre>';
+        }
+    }
+
+    if ($param['malware'] !== 0) {
+        for ($i=0; $i < $param['malware']; $i++) { 
+            ${'Malware'.$i}       =  new Malware;
+            $attacks = $attacks + 1;
+
+            echo '<pre>';
+            var_dump(${'Malware'.$i});
+            echo '</pre>';
+        }
+    }
+        
+
+    $attacks = $param['total'];
+    echo "Nb d'attaquants : ".$attacks;
+}
 
 /*echo '<pre>';
 var_dump($Stagiaire);

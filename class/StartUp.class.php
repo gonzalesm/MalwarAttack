@@ -6,7 +6,7 @@
 
 	    public function __construct(){
 	    	// $life, $name, $x, $y, $level
-	        parent::initialization(10, 'Startup', 0, 0, 0);
+	        parent::initialization(30, 'Startup', 0, 0, 0);
 	        parent::setCost(55);
 	        $this->setBitcoin(25);
 	    }
