@@ -22,7 +22,8 @@
 	    public function toDefense(Attack $enemy=NULL) {}
 
 	    public function toProduceB($nbBitcoin) {
-	    	$this->bitcoin += $nbBitcoin;
+	    	$total = $this->bitcoin += $nbBitcoin;
+	    	return $total;
 	    }
 
 	    public function levelUp(){

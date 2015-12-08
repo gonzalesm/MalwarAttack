@@ -141,10 +141,20 @@ if ($Hacker2->getLife() == 0) {
     $attacks = $attacks - 1;
 }*/
 
+
+
 $attacks = 0;
 
 $game = new Game(0);
 $wave = $game->getWave();
+
+$bitcoin = 0;
+echo "<b>Bitcoin : </b>".$bitcoin;
+$Startup = new Startup;
+
+$bitcoin = $Startup->toProduceB($bitcoin);
+
+echo "<b>Bitcoin : </b>".$bitcoin;
 
 
 // VAGUE 1
