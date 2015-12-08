@@ -77,67 +77,99 @@ class Game{
                 break;
 
             case 3:
-                // $android = 2;
-                // $troyes = 1;
+                $android = 2;
+                $troyes = 1;
                 $hacker = 12;
-                // $malware = 6;
-                return $hacker;
+                $malware = 6;
+
+                $total = $android + $troyes + $hacker + $malware;
+                $array = array('android' => $android, 'troyes' => $troyes, 'hacker' => $hacker, 'malware' => $malware, 'total' => $total);
+
+                return $array;
                 break;
 
             case 4:
-                // $android = 3;
-                // $troyes = 1;
+                $android = 3;
+                $troyes = 1;
                 $hacker = 14;
-                // $malware = 6;
-                return $hacker;
+                $malware = 6;
+
+                $total = $android + $troyes + $hacker + $malware;
+                $array = array('android' => $android, 'troyes' => $troyes, 'hacker' => $hacker, 'malware' => $malware, 'total' => $total);
+
+                return $array;
                 break;
 
             case 5:
-                // $android = 4;
-                // $troyes = 1;
+                $android = 4;
+                $troyes = 1;
                 $hacker = 14;
-                // $malware = 8;
-                return $hacker;
+                $malware = 8;
+
+                $total = $android + $troyes + $hacker + $malware;
+                $array = array('android' => $android, 'troyes' => $troyes, 'hacker' => $hacker, 'malware' => $malware, 'total' => $total);
+
+                return $array;
                 break;
 
             case 6:
-                // $android = 4;
-                // $troyes = 2;
+                $android = 4;
+                $troyes = 2;
                 $hacker = 16;
-                // $malware = 10;
-                return $hacker;
+                $malware = 10;
+
+                $total = $android + $troyes + $hacker + $malware;
+                $array = array('android' => $android, 'troyes' => $troyes, 'hacker' => $hacker, 'malware' => $malware, 'total' => $total);
+
+                return $array;
                 break;
 
             case 7:
-                // $android = 5;
-                // $troyes = 2;
+                $android = 5;
+                $troyes = 2;
                 $hacker = 16;
-                // $malware = 12;
-                return $hacker;
+                $malware = 12;
+
+                $total = $android + $troyes + $hacker + $malware;
+                $array = array('android' => $android, 'troyes' => $troyes, 'hacker' => $hacker, 'malware' => $malware, 'total' => $total);
+
+                return $array;
                 break;
 
             case 8:
-                // $android = 5;
-                // $troyes = 4;
+                $android = 5;
+                $troyes = 4;
                 $hacker = 18;
-                // $malware = 12;
-                return $hacker;
+                $malware = 12;
+
+                $total = $android + $troyes + $hacker + $malware;
+                $array = array('android' => $android, 'troyes' => $troyes, 'hacker' => $hacker, 'malware' => $malware, 'total' => $total);
+
+                return $array;
                 break;
 
             case 9:
-                // $android = 6;
-                // $troyes = 5;
+                $android = 6;
+                $troyes = 5;
                 $hacker = 20;
-                // $malware = 14;
-                return $hacker;
+                $malware = 14;
+                
+                $total = $android + $troyes + $hacker + $malware;
+                $array = array('android' => $android, 'troyes' => $troyes, 'hacker' => $hacker, 'malware' => $malware, 'total' => $total);
+
+                return $array;
                 break;
 
             default:
-                // $android = 0;
-                // $troyes = 0;
+                $android = 0;
+                $troyes = 0;
                 $hacker = 8;
-                // $malware = 4;
-                return $hacker;
+                $malware = 4;
+                
+                $total = $android + $troyes + $hacker + $malware;
+                $array = array('android' => $android, 'troyes' => $troyes, 'hacker' => $hacker, 'malware' => $malware, 'total' => $total);
+
+                return $array;
                 break;
         }
     }
