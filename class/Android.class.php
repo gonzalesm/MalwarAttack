@@ -10,7 +10,7 @@
 
         public function toAttack(Defence $enemy) {
             $enemy->loseLife(10);
-            return $enemy->getLife();
+            //return $enemy->getLife();
         }
 
     }

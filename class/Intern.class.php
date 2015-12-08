@@ -9,8 +9,8 @@
 	    }
 		
 		public function toDefense(Attack $enemy) {
-	            $enemy->loseLife(5);
-	            return $enemy->getLife();
+			$enemy->loseLife(5);
+            //return $enemy->getLife();
 	    }
 	}
 

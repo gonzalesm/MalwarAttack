@@ -24,17 +24,7 @@ class Game{
     }
 
     public function nextWave($nbWave){
-        $android = 0;
-        $troyes = 0;
-        $hacker = 0;
-        $malware = 0;
-
-        $totalAttacks = $android + $troyes + $hacker + $malware;
-
-        if ($totalAttacks == 0) {
-            $nbWave = $nbWave + 1;
-        }
-
+        $nbWave = $nbWave + 1;
         return $nbWave;
     }
 
