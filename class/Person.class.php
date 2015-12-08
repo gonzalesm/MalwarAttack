@@ -42,6 +42,11 @@
         public function loseLife($lifeLost){
             $this->life -= $lifeLost;
         }
+
+        public function levelUp(){
+            $this->level ++;
+        }
+
          
         /*public function move_x($nb=1){
             $this->x += $nb;

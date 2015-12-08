@@ -152,8 +152,10 @@ if ($attacks == 0) {
 
     if ($param['android'] !== 0) {
         for ($i=0; $i < $param['android']; $i++) { 
-            ${'Android'.$i}       =  new Android;
+            ${'Android'.$i} = new Android;
             $attacks = $attacks + 1;
+
+            ${'Android'.$i}->levelUp();
 
             echo '<pre>';
             var_dump(${'Android'.$i});
@@ -163,8 +165,10 @@ if ($attacks == 0) {
 
     if ($param['troyes'] !== 0) {
         for ($i=0; $i < $param['troyes']; $i++) { 
-            ${'Troyes'.$i}       =  new Troyes;
+            ${'Troyes'.$i} = new Troyes;
             $attacks = $attacks + 1;
+
+            ${'Troyes'.$i}->levelUp();
 
             echo '<pre>';
             var_dump(${'Troyes'.$i});
@@ -174,8 +178,10 @@ if ($attacks == 0) {
 
     if ($param['hacker'] !== 0) {
         for ($i=0; $i < $param['hacker']; $i++) { 
-            ${'Hacker'.$i}       =  new Hacker;
+            ${'Hacker'.$i} = new Hacker;
             $attacks = $attacks + 1;
+
+            ${'Hacker'.$i}->levelUp();
 
             echo '<pre>';
             var_dump(${'Hacker'.$i});
@@ -185,18 +191,42 @@ if ($attacks == 0) {
 
     if ($param['malware'] !== 0) {
         for ($i=0; $i < $param['malware']; $i++) { 
-            ${'Malware'.$i}       =  new Malware;
+            ${'Malware'.$i} = new Malware;
             $attacks = $attacks + 1;
+
+            ${'Malware'.$i}->levelUp();
 
             echo '<pre>';
             var_dump(${'Malware'.$i});
             echo '</pre>';
         }
     }
-        
+    
 
     $attacks = $param['total'];
     echo "Nb d'attaquants : ".$attacks;
+
+
+// // Level Up
+
+//     $Malware3->levelUp();
+
+//     echo '<pre>';
+//         var_dump($Malware3);
+//     echo '</pre>';
+
+//     echo '<pre>';
+//         var_dump($Intern);
+//     echo '</pre>';
+
+//     $Intern->levelUp();
+//     $Intern->levelUp();
+
+//     echo '<pre>';
+//         var_dump($Intern);
+//     echo '</pre>';
+
+
 }
 
 /*echo '<pre>';

@@ -26,8 +26,8 @@
         abstract public function toDefense(Attack $enemy);
 
         public function levelUp(){
-            $this->level ++;
-            $this->life *= 1.1;
+            parent::levelUp();
+            $this->life += 4;
         }
 
     }
