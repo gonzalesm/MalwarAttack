@@ -229,7 +229,11 @@ echo '<pre>';
 var_dump($Hacker1);
 echo '</pre>';
 
-    $Intern->toDefense($Hacker1);
+echo '<pre>';
+var_dump($Intern);
+echo '</pre>';
+
+     $Intern->toDefense($Hacker1);
 
 if ($Hacker1->getLife() == 0) {
     $attacks = $attacks - 1;

@@ -9,7 +9,10 @@
         }
 
         public function toAttack(Defence $enemy) {
-            $enemy->loseLife(5);
+            if ($this->getY() == $enemy->getY()) {
+                $enemy->loseLife(55);
+            }
+           
             return $enemy->getLife();
         }
 

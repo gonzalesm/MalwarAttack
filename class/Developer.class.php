@@ -9,7 +9,11 @@
 	    }
 
 	    public function toDefense(Attack $enemy) {
-		    $enemy->loseLife(15);
+	    	$difX = $this->getX() - $enemy->getX();
+	    	if ($this->getY() == $enemy->getY() && $difX <= 2) {
+	        	$enemy->loseLife(15);
+	  		}
+		    
 		    return $enemy->getLife();
 		}
 	}
