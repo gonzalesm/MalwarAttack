@@ -1,65 +1,35 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: valentin.berthelot
- * Date: 18/11/2015
- * Time: 10:37
- */
 
-class StartUp extends Defence {
-    protected $damage;
-    protected $bitcoin;
-    protected $state;
+	class StartUp extends Defence {
 
-    /**
-     * @return mixed
-     */
-    public function getBitcoin()
-    {
-        return $this->bitcoin;
-    }
+		protected $bitcoin;
 
-    /**
-     * @param mixed $bitcoin
-     */
-    public function setBitcoin($bitcoin)
-    {
-        $this->bitcoin = $bitcoin;
-    }
+	    public function __construct(){
+	    	// $life, $name, $x, $y, $level
+	        parent::initialization(30, 'Startup', 0, 0, 0);
+	        parent::setCost(50);
+	        $this->setBitcoin(25);
+	    }
 
-    /**
-     * @return mixed
-     */
-    public function getDamage()
-    {
-        return $this->damage;
-    }
+	    public function getBitcoin() {
+            return $this->bitcoin;
+        }
 
-    /**
-     * @param mixed $damage
-     */
-    public function setDamage($damage)
-    {
-        $this->damage = $damage;
-    }
+        public function setBitcoin($bitcoin) {
+            $this->bitcoin = $bitcoin;
+        }
 
-    /**
-     * @return mixed
-     */
-    public function getState()
-    {
-        return $this->state;
-    }
+	    public function toDefense(Attack $enemy=NULL) {}
 
-    /**
-     * @param mixed $state
-     */
-    public function setState($state)
-    {
-        $this->state = $state;
-    }
+	    public function toProduceB($nbBitcoin) {
+	    	$total = $this->bitcoin += $nbBitcoin;
+	    	return $total;
+	    }
 
-    public function productBitcoin() {
+	    public function levelUp(){
+            parent::levelUp();
+            $this->bitcoin += 5;
+        }
 
-    }
-} 
+	}
+?>

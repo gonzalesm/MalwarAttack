@@ -1,6 +1,15 @@
 <?php
 
-    abstract class Attack extends Person {
+	abstract class Defence extends Person {
+        protected $cost;
+
+        public function getCost() {
+            return $this->cost;
+        }
+
+        public function setCost($cost) {
+            $this->cost = $cost;
+        }
 
         public function initialization($life, $name, $x, $y, $level){
             parent::setLife($life);
@@ -14,13 +23,12 @@
             $this->number += $number;
         }
 
-        abstract public function toAttack(Defence $enemy);
-
+        abstract public function toDefense(Attack $enemy);
 
         public function levelUp(){
             parent::levelUp();
-            $this->life += 5;
+            $this->life += 4;
         }
-        
+
     }
 ?>
