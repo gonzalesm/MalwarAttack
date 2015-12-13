@@ -1,10 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: valentin.berthelot
- * Date: 18/11/2015
- * Time: 10:30
- */
+
 
 class Game{
     protected $wave;
@@ -27,6 +22,7 @@ class Game{
         $nbWave = $nbWave + 1;
         return $nbWave;
     }
+    
 
     public function paramWave($nbWave){
         switch ($nbWave) {

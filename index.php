@@ -11,7 +11,6 @@
 	  	<script src="script.js"></script>
 
 	</head>
-
 <?php
 error_reporting(E_ALL);
 ini_set("display_errors", 1);
@@ -35,30 +34,87 @@ $DeveloperCost = $Developer->getCost();
 $Game = new Game;
 $paramWave = $Game->paramWave(0);
 
-foreach($paramWave as $k => $ennemy){
-    $name = $ennemy['name'];
-    if(is_string($name)){
-        ${$name} = new $name;
-        $nom = ${$name}->getName();
-      echo  $x = ${$name}->getX();
-        $y = ${$name}->getY();
-        
-        ?>
-            <script>
-            $( document ).ready(function() {
-//                $(".case").find("[data-x='" + x + "']").html('Bonjour');
-                var y = <?php echo $y; ?>;
-                var x = <?php echo $x; ?>;
-                var result = $('.boardgame[data-y="'+ y +'"],[data-x="'+ x +'"]').html(y);
-                });
-        </script>
-        <?php
-    }
-    
-}
+
+$Troyes = new Troyes;
+$x = $Troyes->getX();
+$y = $Troyes->getY();
+
+// Backup.php
 
 ?>
+
+<script>
+    $( document ).ready(function() {
+        var y_perso = <?php echo $y; ?>;
+        var x_perso = <?php echo $x; ?>;
+        
+var move = function(x_perso, y_perso){
+        
+    $.ajax({
+    url: 'ajax_2.php',
+    data: {
+        x_perso: x_perso,
+        y_perso: y_perso,
+    },
+    dataType: 'json',
+    type: 'POST'
+    }).done(function(data) {
+        $('.case[data-y="'+ data.y_perso +'"][data-x="'+ data.x_perso +'"]').append('<img style="width:40px; height:70px; margin-top:5px; margin-left: 30px; margin-top: 15px;position:absolute;" src="images/Troyes.png" data-name="Troyes">');
+
+    if(data.x_perso < 1){
+        alert('plus petit');
+    }
+        
+    move(data.x_perso, data.y_perso);
     
+    }).fail(function(data) {
+        alert('Ajax failed');
+    });
+        
+var countdown = function(value) {
+    if (value > 0) {
+        console.log(value);
+        return countdown(value - 1);
+    } else {
+        return value;
+    }
+};
+
+countdown(10);
+    
+};
+        
+//        var doStuff = function(nv_x){
+//            var test = '<img style="width:40px; height:70px; margin-top:5px; margin-left: 30px; margin-top: 15px;position:absolute;" src="images/Troyes.png" data-name="Troyes">';
+//            if(Number(nv_x) != 0){
+//                var nv_x = Math.round(Math.random()*9) + 1;
+//            }else{
+//                var nv_x = Number(nv_x) - 1;
+//            }
+//            var place = $('.case[data-y="'+ y +'"][data-x="'+ nv_x +'"]').append(test);
+//            return nv_x;
+//        };
+//        
+//        (function loopingFunction() {
+//            $('.case[data-y="'+ y +'"][data-x="'+ x +'"]').data('x');
+//            var nv_x = doStuff(nv_x);
+//            console.log(nv_x);
+//            setTimeout(loopingFunction, 1000);
+//        })();
+        
+//        window.setInterval(function(){
+//            var test = '<img style="width:40px; height:70px; margin-top:5px; margin-left: 30px; margin-top: 15px;position:absolute;" src="images/Troyes.png" data-name="Troyes">';
+//            var nv_x = Math.round(Math.random()*9) + 1;
+//            var place = $('.case[data-y="'+ y +'"][data-x="'+ nv_x +'"]').append(test);
+////            window.setInterval(function(){
+////                $('.case[data-y="'+ y +'"][data-x="'+ nv_x +'"]').html('');
+////            }, 2000);
+//         }, 2000);
+        
+        });
+</script>
+
+
 	<body>
 
 		<div class="menu-header">
@@ -71,20 +127,20 @@ foreach($paramWave as $k => $ennemy){
 			<div class="vague">Vague : 00</div>
 
 			<div class="person startup">
-				<img style="width:40px; height:70px; margin-top:5px;" src="images/startup.png" data-name="Startup">
+				<img style="width:40px; height:70px; margin-top:5px;" src="images/Startup.png" data-name="Startup">
 				<div class='value'><?php echo $StartupCost; ?></div>
 			</div> 
 
 			<div class="person antivirus">
-				<img style="width:40px; height:70px; margin-top:5px;" src="images/antivirus.png" data-name="Antivirus">
+				<img style="width:40px; height:70px; margin-top:5px;" src="images/Antivirus.png" data-name="Antivirus">
 				<div class="value"><?php echo $AntivirusCost; ?></div>
 			</div>
 			<div class="person intern">
-				<img style="width:40px; height:70px; margin-top:5px;" src="images/intern.png" data-name="Intern">
+				<img style="width:40px; height:70px; margin-top:5px;" src="images/Intern.png" data-name="Intern">
 				<div class="value"><?php echo $InternCost; ?></div>
 			</div>
 			<div class="person developper">
-				<img style="width:40px; height:70px; margin-top:5px;" src="images/dev.png" data-name="Developer">
+				<img style="width:40px; height:70px; margin-top:5px;" src="images/Developper.png" data-name="Developer">
 				<div class="value"><?php echo $DeveloperCost; ?></div>
 			</div>
 
@@ -253,15 +309,17 @@ $( document ).ready(function() {
 });
 //$( ".menu-header img" ).draggable('option', 'cancel', '.bitcon img');
 
- 
+
 
  $( ".person img" ).draggable({ 
      revert: true,
      tolerance: 'fit',
+     // helper: "clone",
      items: "tr:not(.bitcon img)",
-     create: function(){$(this).data('position',$(this).position())},
+    
+     create: function(){
+     	$(this).data('position',$(this).position())},
  });
-
  // $( ".menu-header img" ).draggable('option', 'cancel', '.bitcon img');
     
 $('.boardgame .case').droppable({
@@ -286,6 +344,7 @@ $('.boardgame .case').droppable({
          var y = $(this).data('y');
         $(this).data('not-empty', 1);
          
+         // $(this).append($(ui.helper).clone());
          
 //            var nb_bitcoin = $(".bitcoin").data('nb-bitcoin');  
 //            $(".bitcoin").data('nb-bitcoin', Number(bitcoin) - 25);
