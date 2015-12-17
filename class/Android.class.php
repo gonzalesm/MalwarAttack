@@ -1,49 +1,21 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: valentin.berthelot
- * Date: 18/11/2015
- * Time: 10:59
- */
 
-class Android extends Attack {
-    protected $life;
-    protected $dammage;
+    class Android extends Attack {
 
-    /**
-     * @return mixed
-     */
-    public function getDammage()
-    {
-        return $this->dammage;
-    }
+        public function __construct(){
+            // $life, $name, $x, $y, $level
+            $randomY = rand(1, 5);
+            parent::initialization(50, 'Android', 9, $randomY, 0);
+        }
 
-    /**
-     * @param mixed $dammage
-     */
-    public function setDammage($dammage)
-    {
-        $this->dammage = $dammage;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getLife()
-    {
-        return $this->life;
-    }
-
-    /**
-     * @param mixed $life
-     */
-    public function setLife($life)
-    {
-        $this->life = $life;
-    }
-
-    public function AttackBodyToBody(){
+        public function toAttack(Defence $enemy) {
+            $difX = $this->getX() - $enemy->getX();
+            if ($this->getY() == $enemy->getY() && $difX = 1) {
+                $enemy->loseLife(10);
+            }
+            
+            return $enemy->getLife();
+        }
 
     }
-
-} 
+?>

@@ -1,48 +1,20 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: valentin.berthelot
- * Date: 18/11/2015
- * Time: 11:06
- */
 
-class Virus {
-    protected $life;
-    protected $dammages;
-
-    /**
-     * @return mixed
-     */
-    public function getDammages()
-    {
-        return $this->dammages;
-    }
-
-    /**
-     * @param mixed $dammages
-     */
-    public function setDammages($dammages)
-    {
-        $this->dammages = $dammages;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getLife()
-    {
-        return $this->life;
-    }
-
-    /**
-     * @param mixed $life
-     */
-    public function setLife($life)
-    {
-        $this->life = $life;
-    }
-
-    public function directAttack(){
-
-    }
-} 
+	class Troyes extends Attack{
+	    
+	    public function __construct(){
+	        // $life, $name, $x, $y, $level
+	        $randomY = rand(1, 5);
+	        parent::initialization(100, 'Troyes', 9, $randomY, 0);
+	    }
+	    
+	    public function toAttack(Defence $enemy) {
+	        $difX = $this->getX() - $enemy->getX();
+            if ($this->getY() == $enemy->getY() && $difX = 1) {
+                $enemy->loseLife(20);
+            }
+	        return $enemy->getLife();
+	    }
+	
+	}
+?>
