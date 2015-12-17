@@ -1,57 +1,19 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: valentin.berthelot
- * Date: 18/11/2015
- * Time: 10:38
- */
 
-class Intern extends Defence {
-    protected $damage;
-    protected $distance;
-    protected $state;
+	class Intern extends Defence {
+	    
+	    public function __construct(){
+	        // $life, $name, $x, $y, $level
+	        parent::initialization(30, 'Intern', 0, 0, 0);
+	        parent::setCost(25);
+	    }
+		
+		public function toDefense(Attack $enemy) {
+			if ($this->getY() == $enemy->getY()) {
+	        	$enemy->loseLife(5);
+	  		}
+			return $enemy->getLife();
+	    }
+	}
 
-    /**
-     * @return mixed
-     */
-    public function getDamage()
-    {
-        return $this->damage;
-    }
-
-    /**
-     * @param mixed $damage
-     */
-    public function setDamage($damage)
-    {
-        $this->damage = $damage;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getDistance()
-    {
-        return $this->distance;
-    }
-
-    /**
-     * @param mixed $distance
-     */
-    public function setDistance($distance)
-    {
-        $this->distance = $distance;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getState()
-    {
-        return $this->state;
-    }
-
-    public function attackDistance() {
-
-    }
-} 
+?>
