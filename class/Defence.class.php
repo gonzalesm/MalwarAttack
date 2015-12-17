@@ -1,7 +1,7 @@
 <?php
 
 	abstract class Defence extends Person {
-        protected $cost;
+        protected $cost; // Coût d'un défenseur
 
         public function getCost() {
             return $this->cost;
@@ -28,6 +28,7 @@
         public function levelUp(){
             parent::levelUp();
             $this->life += 4;
+            // augmente de 4 la life
         }
 
     }

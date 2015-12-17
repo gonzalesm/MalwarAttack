@@ -41,10 +41,12 @@
 
         public function loseLife($lifeLost){
             $this->life -= $lifeLost;
+            // enlève la valeur envoyée en param à life
         }
 
         public function levelUp(){
             $this->level ++;
+            // incrémente de 1 le level
         }
 
          

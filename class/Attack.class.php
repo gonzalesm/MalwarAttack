@@ -19,7 +19,9 @@
 
         public function levelUp(){
             parent::levelUp();
+            // incrémente de 1 le level
             $this->life += 5;
+            // augmente de 5 la life
         }
         
     }
